@@ -5,9 +5,9 @@
 #:: Version: v2.0.0.0
 
 set -e
+Intall_log='/tmp/adeptiocore_install.log'
 
 echo 'Installing adeptiocore...'
-
 # Check if we have adeptiocore.service?
 file="/etc/systemd/system/adeptiocore.service"
 if [ -e "$file" ]; then
