@@ -73,9 +73,4 @@ real_user=$(who | awk '{print $1}' | head -1)
 # Change perm:
 sudo chown -R $real_user:$real_user $(echo $HOME)/.adeptio/
 
-# Copy new binary's
-sudo cp -fr $HOME/bin/adeptiod /usr/bin/
-sudo cp -fr $HOME/bin/adeptio-cli /usr/bin/
-sudo cp -fr $HOME/manage/adeptiocore /usr/local/bin/
-
 echo 'AdeptioCore successfully installed...'
