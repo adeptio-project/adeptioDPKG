@@ -9,11 +9,11 @@ set -e
 # Check if adeptiocore.service exist?
 file="/etc/systemd/system/adeptiocore.service"
 if [ -e "$file" ]; then
-    echo "" &> /dev/null
+    sudo systemctl stop adeptiocore.service
+    rm /etc/systemd/system/adeptiocore.service
+    sudo systemctl daemon-reload
 else
-sudo systemctl stop adeptiocore.service
-rm /etc/systemd/system/adeptiocore.service
-sudo systemctl daemon-reload
+    echo "" &> /dev/null
 fi
 
 # Remove binary's
