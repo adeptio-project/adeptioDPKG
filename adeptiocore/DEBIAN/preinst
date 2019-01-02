@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+#:: Adeptio dev team
+#:: Copyright // 2019-01-05
+#:: Version: v2.0.0.0
+
+set -e
+
+# Check if we have adeptiocore.service?
+file="/etc/systemd/system/adeptiocore.service"
+if [ -e "$file" ]; then 
+    sudo systemctl stop adeptiocore
+else
+    echo "" &> /dev/null
+fi

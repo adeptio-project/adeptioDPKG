@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+#:: Adeptio dev team
+#:: Copyright // 2019-01-05
+#:: Version: v2.0.0.0
+
+set -e
+
+echo 'Installing adeptiocore...'
+
+# Check if we have adeptiocore.service?
+file="/etc/systemd/system/adeptiocore.service"
+if [ -e "$file" ]; then
+    echo "" &> /dev/null
+else
+cat << EOF > /etc/systemd/system/adeptiocore.service
+[Unit]
+Description=Adeptio Core Wallet daemon & service
+After=network.target
+[Service]
+User=$(echo $USER)
+Type=forking
+ExecStart=/usr/bin/adeptiod -daemon -pid=$(echo $HOME)/.adeptio/adeptiod.pid
+PIDFile=$(echo $HOME)/.adeptio/adeptiod.pid
+ExecStop=/usr/bin/adeptio-cli stop
+Restart=always
+RestartSec=3600
+TimeoutStopSec=60s
+TimeoutStartSec=10s
+StartLimitInterval=120s
+StartLimitBurst=5
+[Install]
+WantedBy=default.target
+EOF
+fi
+
+# Change perm:
+sudo chmod 664 /etc/systemd/system/adeptiocore.service
+
+# Check if adeptio.conf is empty?
+[ -s ~/.adeptio/adeptio.conf ] ||
+
+echo 'Configuring adeptiocore for the first time...'
+
+# Create initial conf:
+mkdir -p ~/.adeptio/
+touch ~/.adeptio/adeptio.conf
+cat << EOF > ~/.adeptio/adeptio.conf
+rpcuser=adeptiouser
+rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
+rpcallow=127.0.0.1
+server=1
+listen=1
+daemon=1
+staking=1
+addnode=seed0.adeptio.cc
+addnode=seed1.adeptio.cc
+addnode=seed2.adeptio.cc
+addnode=seed3.adeptio.cc
+addnode=seed4.adeptio.cc
+addnode=seed5.adeptio.cc
+addnode=seed6.adeptio.cc
+addnode=seed7.adeptio.cc
+addnode=seed8.adeptio.cc
+addnode=seed9.adeptio.cc
+addnode=seed10.adeptio.cc
+addnode=seed11.adeptio.cc
+EOF
+
+# Check the real user:
+real_user=$(who | awk '{print $1}' | head -1)
+
+# Change perm:
+sudo chown -R $real_user:$real_user $(echo $HOME)/.adeptio/
+
+# Copy new binary's
+sudo cp -fr $HOME/adeptioDPKG/bin/adeptiod /usr/bin/
+sudo cp -fr $HOME/adeptioDPKG/bin/adeptio-cli /usr/bin/
+sudo cp -fr $HOME/adeptioDPKG/manage/adeptiocore /usr/local/bin/
+
+echo 'AdeptioCore successfully installed...'
