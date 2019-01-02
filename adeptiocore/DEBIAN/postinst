@@ -34,6 +34,8 @@ WantedBy=default.target
 EOF
 fi
 
+sudo systemctl enable adeptiocore
+
 # Change perm:
 sudo chmod 664 /etc/systemd/system/adeptiocore.service
 
