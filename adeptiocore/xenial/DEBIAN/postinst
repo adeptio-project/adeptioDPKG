@@ -69,10 +69,4 @@ addnode=seed10.adeptio.cc
 addnode=seed11.adeptio.cc
 EOF
 
-# Check the real user:
-real_user=$(who | awk '{print $1}' | head -1)
-
-# Change perm:
-sudo chown -R $real_user:$real_user $(echo $HOME)/.adeptio/
-
 echo 'AdeptioCore successfully installed...'
