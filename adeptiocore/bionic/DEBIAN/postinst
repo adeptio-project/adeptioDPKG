@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
 #:: Adeptio dev team
-#:: Copyright // 2019-01-05
+#:: Copyright // 2019-01-08
 #:: Version: v2.0.0.0
 
 set -e
-Intall_log='/tmp/adeptiocore_install.log'
+Intall_log='/var/log/syslog'
 
 echo 'Installing adeptiocore...'
+
 # Check if we have adeptiocore.service?
 file="/etc/systemd/system/adeptiocore.service"
+
 if [ -e "$file" ]; then
     echo "" &> /dev/null
 else
@@ -40,33 +42,23 @@ sudo systemctl enable adeptiocore
 sudo chmod 664 /etc/systemd/system/adeptiocore.service
 
 # Check if adeptio.conf is empty?
-[ -s ~/.adeptio/adeptio.conf ] ||
-
+file2="~/.adeptio/adeptio.conf"
+if [ -e "$file2" ]; then
+    echo "" &> /dev/null
+else
 echo 'Configuring adeptiocore for the first time...'
-
-# Create initial conf:
 mkdir -p ~/.adeptio/
 touch ~/.adeptio/adeptio.conf
 cat << EOF > ~/.adeptio/adeptio.conf
-rpcuser=adeptiouser
+rpcuser=adeptiocoreuser
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 rpcallow=127.0.0.1
 server=1
 listen=1
 daemon=1
 staking=1
-addnode=seed0.adeptio.cc
-addnode=seed1.adeptio.cc
-addnode=seed2.adeptio.cc
-addnode=seed3.adeptio.cc
-addnode=seed4.adeptio.cc
-addnode=seed5.adeptio.cc
-addnode=seed6.adeptio.cc
-addnode=seed7.adeptio.cc
-addnode=seed8.adeptio.cc
-addnode=seed9.adeptio.cc
-addnode=seed10.adeptio.cc
-addnode=seed11.adeptio.cc
+enablezeromint=0
 EOF
+fi
 
 echo 'AdeptioCore successfully installed...'

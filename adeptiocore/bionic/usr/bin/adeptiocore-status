@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #:: Adeptio dev team
-#:: Copyright // 2019-01-05
+#:: Copyright // 2019-01-08
 #:: Version: v2.0.0.0
 
-sudo systemctl status adeptiocore
+systemctl status adeptiocore

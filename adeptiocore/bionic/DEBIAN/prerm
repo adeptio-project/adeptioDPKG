@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #:: Adeptio dev team
-#:: Copyright // 2019-01-05
+#:: Copyright // 2019-01-08
 #:: Version: v2.0.0.0
 
 set -e
@@ -21,4 +21,4 @@ rm -fr /usr/bin/adeptiod
 rm -fr /usr/bin/adeptio-cli
 
 # Remove status checker
-sudo rm -fr /usr/local/bin/adeptiocore
+sudo rm -fr /usr/bin/adeptiocore-*
