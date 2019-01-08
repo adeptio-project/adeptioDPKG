@@ -9,4 +9,4 @@ Install by typing:
 
     sudo apt install adeptiocore.deb -y
     
-This command installs all required dependencies and libs in order to start adeptiocore service. More information can be found at adeptio wiki: https://wiki.adeptio.cc
+This command ensures all required dependencies and libs in order to start adeptiocore service. More information can be found at adeptio wiki: https://wiki.adeptio.cc/books/adeptio-repository/page/apt-repository-for-ubuntu-1604-1804
