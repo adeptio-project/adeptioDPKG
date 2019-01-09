@@ -8,6 +8,7 @@ set -e
 Intall_log='/var/log/syslog'
 
 # Check if we have adeptiocore.service?
+sudo systemctl daemon-reload
 file="/etc/systemd/system/adeptiocore.service"
 if [ -e "$file" ]; then 
     sudo systemctl stop adeptiocore
