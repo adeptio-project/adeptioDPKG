@@ -10,12 +10,8 @@ Intall_log='/var/log/syslog'
 echo 'Installing adeptiocore...'
 
 # Check if we have adeptiocore.service?
-file="/etc/systemd/system/adeptiocore.service"
-
-if [ -e "$file" ]; then
-    echo "" &> /dev/null
-else
-cat << EOF > /etc/systemd/system/adeptiocore.service
+test -e /etc/systemd/system/adeptiocore.service || echo 'Creating systemD service...'
+test -e /etc/systemd/system/adeptiocore.service || sudo cat << EOF > /etc/systemd/system/adeptiocore.service
 [Unit]
 Description=Adeptio Core Wallet daemon & service
 After=network.target
@@ -34,7 +30,6 @@ StartLimitBurst=5
 [Install]
 WantedBy=default.target
 EOF
-fi
 
 sudo systemctl enable adeptiocore
 
@@ -42,14 +37,10 @@ sudo systemctl enable adeptiocore
 sudo chmod 664 /etc/systemd/system/adeptiocore.service
 
 # Check if adeptio.conf is empty?
-file2="~/.adeptio/adeptio.conf"
-if [ -e "$file2" ]; then
-    echo "" &> /dev/null
-else
-echo 'Configuring adeptiocore for the first time...'
 mkdir -p ~/.adeptio/
-touch ~/.adeptio/adeptio.conf
-cat << EOF > ~/.adeptio/adeptio.conf
+
+test -e $HOME/.adeptio/adeptio.conf || echo 'Configuring adeptiocore for the first time...'
+test -e $HOME/.adeptio/adeptio.conf || sudo cat << EOF > ~/.adeptio/adeptio.conf
 rpcuser=adeptiocoreuser
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 rpcallow=127.0.0.1
@@ -59,6 +50,5 @@ daemon=1
 staking=1
 enablezeromint=0
 EOF
-fi
 
 echo 'AdeptioCore successfully installed...'
