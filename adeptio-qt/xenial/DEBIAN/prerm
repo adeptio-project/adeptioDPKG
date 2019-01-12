@@ -18,7 +18,6 @@ rm /usr/lib/tmp/adeptio.png
 rm -fr /usr/lib/tmp/
 
 # Remove desktop icon
-rm ~/Desktop/adeptio-qt.desktop
-
+rm -fr /home/*/Desktop/adeptio-qt.desktop
 
 # delete blockchain except wallet.dat
