@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#:: Adeptio dev team
+#:: Copyright // 2019-01-08
+#:: Version: v2.0.0.0
+
+set -e
+
+# Remove binary's
+rm -fr /usr/bin/adeptio-qt

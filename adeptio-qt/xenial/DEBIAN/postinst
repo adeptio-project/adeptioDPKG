@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+#:: Adeptio dev team
+#:: Copyright // 2019-01-08
+#:: Version: v2.0.0.0
+
+set -e
+Intall_log='/var/log/syslog'
+
+echo 'Installing adeptio-qt...'
+
+echo 'AdeptioCore successfully installed...'

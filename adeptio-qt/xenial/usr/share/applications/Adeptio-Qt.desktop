@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=2.0
+Name=Adeptio GUI Wallet
+Comment=Manage your adeptio coins
+GenericName=Adeptio Wallet
+Keywords=Wallet;Adeptio;Coins;Bitcoin
+Exec=adeptio-qt %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=adeptio
+Categories=GNOME;GTK;Network
+StartupNotify=true
