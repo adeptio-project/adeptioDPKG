@@ -9,4 +9,7 @@ Intall_log='/var/log/syslog'
 
 echo 'Installing adeptio-qt...'
 
+cp /usr/share/applications/adeptio-qt.desktop ~/Desktop/
+chmod +x ~/Desktop/adeptio-qt.desktop
+
 echo 'adeptio-qt successfully installed...'
