@@ -33,6 +33,9 @@ EOF
 
 sudo systemctl enable adeptiocore
 
+test -e /usr/lib/libdb_cxx-4.8.so || sudo ln -s /usr/lib/tmp/libdb_cxx-4.8.so /usr/lib/
+test -e /usr/share/doc/libdb4.8++/changelog.Debian.gz || sudo ln -s /usr/lib/tmp/share/doc/libdb4.8++ /usr/share/doc/
+
 # Change perm:
 sudo chmod 664 /etc/systemd/system/adeptiocore.service
 

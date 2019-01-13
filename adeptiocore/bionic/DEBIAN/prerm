@@ -24,5 +24,7 @@ rm -fr /usr/bin/adeptio-cli
 sudo rm -fr /usr/bin/adeptiocore-*
 
 #Remove libdb4.8
-rm /usr/lib/libdb_cxx-4.8.so
-rm -fr /usr/share/doc/libdb4.8++/
+test -L /usr/lib/libdb_cxx-4.8.so && rm /usr/lib/libdb_cxx-4.8.so
+test -L /usr/share/doc/libdb4.8++ && rm /usr/share/doc/libdb4.8++
+
+rm -fr /usr/lib/tmp/
