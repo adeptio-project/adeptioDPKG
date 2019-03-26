@@ -1,4 +1,4 @@
-Package: storade-server
+Package: storadeserver
 Version: 1.2
 Architecture: amd64
 Maintainer: Adeptio development team <development@adeptio.cc>
