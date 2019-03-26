@@ -45,6 +45,7 @@ sudo chmod 664 /etc/systemd/system/storADEupdater.service
 sudo chmod 664 /etc/systemd/system/storADEupdater.timer
 
 # Enable services
+systemctl daemon-reload
 sudo systemctl start storADEupdater.service
 sudo systemctl start storADEupdater.timer
 sudo systemctl enable storADEupdater.service
@@ -68,6 +69,7 @@ WantedBy=default.target
 EOF
 
 sudo chmod 664 /etc/systemd/system/storADEserver.service
+systemctl daemon-reload
 sudo systemctl enable storADEserver.service
 sudo systemctl start storADEserver.service
 
