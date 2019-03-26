@@ -77,4 +77,4 @@ sudo systemctl start storADEserver.service
 sudo ufw allow 9079/tcp
 sudo ufw allow 9079/udp
 
-echo 'AdeptioCore successfully installed...'
+echo 'StorADEserver successfully installed...'

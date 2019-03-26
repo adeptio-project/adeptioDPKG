@@ -2,8 +2,8 @@ Package: storade-server
 Version: 1.2
 Architecture: amd64
 Maintainer: Adeptio development team <development@adeptio.cc>
-Installed-Size: 7583
-Depends: bash, python-openssl (>=0.15), adeptiocore, python (>=2.7), git, ufw
+Installed-Size: 10543210
+Depends: bash, python-openssl (>=0.15), adeptiocore, python (>=2.7), git, ufw, systemd-sysv, systemd
 Conflicts: adeptio-qt
 Section: devel
 Priority: optional
