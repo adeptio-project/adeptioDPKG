@@ -1,4 +1,4 @@
-Package: storadeserver
+Package: storade-server
 Version: 1.2
 Architecture: amd64
 Maintainer: Adeptio development team <development@adeptio.cc>
@@ -9,5 +9,4 @@ Section: devel
 Priority: optional
 Homepage: https://adeptio.cc
 Vcs-Git: https://github.com/adeptio-project/adeptioDPKG.git
-Description: Adeptio Core combines the best features of different coins in order to create an excellent digital payment asset.
-StorADE service technology with valuable adeptio masternode functionality serves storage & streaming platform for every day usage. 
+Description: Adeptio Core combines the best features of different coins in order to create an excellent digital payment asset. StorADE service technology with valuable adeptio masternode functionality serves storage & streaming platform for every day usage. 
