@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#:: Adeptio dev team
+#:: Copyright // 2019-03-26
+#:: Version: v1.2
+
+set -e
+
+# Check if storADEserver.service exist?
+file="/etc/systemd/system/storADEupdater.service"
+if [ -e "$file" ]; then
+    sudo systemctl stop storADEserver
+    rm /etc/systemd/system/storADEupdater.service
+    rm /etc/systemd/system/storADEupdater.timer
+    rm /etc/systemd/system/storADEserver.service
+    cd ~/ && rm -fr adeptioStorade
+    sudo systemctl daemon-reload
+else
+    echo "" &> /dev/null
+fi
+
+# Remove status checker
+sudo rm -fr /usr/bin/storade-server*

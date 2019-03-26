@@ -1,0 +1,5 @@
+adeptio core (1.2) stable;
+
+Initial release. Configures everything for storade-server
+
+-- adeptio-project <development@adeptio.cc> Tue Mar 26 16:09:47 EET 2019

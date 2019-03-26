@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#:: Adeptio dev team
+#:: Copyright // 2019-03-26
+#:: Version: v1.2
+
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+tail -n 30 ~/adeptioStorade/storage/storADE.log
+
+echo -e "${GREEN}©2018-2019 powered by adeptio-project${NC}"
+
